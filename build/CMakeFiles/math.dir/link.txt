@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/math.dir/src/main.cpp.o CMakeFiles/math.dir/src/vector3d.cpp.o -o math 

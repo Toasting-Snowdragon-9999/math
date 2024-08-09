@@ -1,21 +1,29 @@
-cmake_minimum_required(VERSION 3.12)
-project(math)
+cmake_minimum_required(VERSION 3.10)
 
-# Include header files from the "libs" directory
-include_directories(libs)
+# Project name
+project(math_lib)
 
-# Add cpp files from the "src" directory
-file(GLOB SOURCES src/*.cpp)
-
-# Specify C++ standard (optional but recommended)
-set(CMAKE_CXX_STANDARD 17)
+# Set C++ standard
+set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-# Add a library target if you have library files (optional)
-# add_library(my_library libs/my_library.cpp)
+# # Find the NLopt package
+# find_package(NLopt REQUIRED)
+include_directories(include)
 
-# Link the library to the executable (optional)
-# target_link_libraries(math my_library)
+set(SOURCES
+    src/main.cpp
+)
 
-# Create an executable target
-add_executable(math ${SOURCES})
+set(HEADERS
+    include/matrix.hpp
+    include/vector3d.hpp
+)
+# # Include directories
+# include_directories(${NLOPT_INCLUDE_DIRS})
+
+# Add executable
+add_executable(math_lib ${SOURCES} ${HEADERS})
+
+# # Link libraries
+# target_link_libraries(math_lib ${NLOPT_LIBRARIES})

@@ -1,0 +1,3 @@
+/home/chrisser/git/private/math/build/CMakeFiles/math_lib.dir
+/home/chrisser/git/private/math/build/CMakeFiles/edit_cache.dir
+/home/chrisser/git/private/math/build/CMakeFiles/rebuild_cache.dir

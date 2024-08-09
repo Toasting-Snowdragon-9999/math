@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/math_lib.dir/src/main.cpp.o -o math_lib 
