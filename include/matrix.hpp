@@ -95,6 +95,23 @@ namespace math{
                 }
             }
 
+            Matrix operator*(T scalar){
+                if (verify_matrix()){
+                    std::vector<std::vector<T>> temp;
+                    for(int i = 0; i < _matrix.size(); i++){
+                        std::vector<T> row;
+                        for(int j = 0; j < _matrix[i].size(); j++){
+                            row.push_back(_matrix[i][j] * scalar);
+                        }
+                        temp.push_back(row);
+                    }
+                    return Matrix(temp);
+                }
+                else{
+                    throw std::invalid_argument("Position out of bounds");
+                }
+            }
+
             void print(){
                 for(int i = 0; i < _matrix.size(); i++){
                     std::cout << "[";
@@ -104,6 +121,41 @@ namespace math{
                     std::cout << "]" << std::endl;
                 }
             }
+
+            std::vector<std::vector<T>> get_matrix(){
+                return _matrix;
+            }
+    };
+
+    template <typename T>
+    class TransformatioMatrix: public Matrix<T>{
+        private:
+            std::vector<std::vector<T>> _matrix;
+            int _rows;
+            int _cols;
+            std::vector<int> _size;
+            std::vector<std::vector<T>> _rotmat;
+            std::vector<T> _translate;
+
+
+        public: 
+            TransformatioMatrix(){
+                _matrix = {{1, 0, 0, 0}, {0, 1, 0, 0}, {0, 0, 1, 0},{0, 0, 0, 1}};
+                _size = {4, 4};
+            }
+            TransformatioMatrix(std::vector<std::vector<T>> matrix): _matrix(matrix){};
+            TransformatioMatrix(math::Matrix matrix)_matrix(matrix.get_matrix()){}
+            TransformatioMatrix(std::vector<std::vector<T>> rotmat, std::vector<T> translate): _rotmat(rotmat), _translate(translate){
+                _matrix = rotmat;
+                _matrix.push_back(translate);
+                if verify_matrix(){
+                    _size = {rotmat.size(), rotmat[0].size()};
+                }
+                else{
+                    throw std::invalid_argument("Position out of bounds");
+                }
+            }
+
     };
 };
 
