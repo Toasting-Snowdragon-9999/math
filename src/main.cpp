@@ -1,5 +1,6 @@
 #include <iostream>
 #include "matrix.hpp"
+#include "vector3d.hpp"
 
 int main(){
     std::cout << "Hello World!" << std::endl;
@@ -9,5 +10,10 @@ int main(){
     math::Matrix<float> m3;
     m3 = m + m2;
     m3.print();
+    math::Vec3d<float> v({1.0, 2.0, 3.0});
+    math::Vec3d<float> v2({1.0, 2.0, 3.0});
+    math::Vec3d<float> v3;
+    v3 = v + v2;
+    v3.print();
     return 0;
 }
