@@ -195,6 +195,13 @@ namespace math{
                 return vec * (dot(vec) / vec.norm());
             }
 
+            friend std::ostream& operator<<(std::ostream& os, const Vec3d& obj){
+                os << "[" << obj.get_val(0) << ", " << obj.get_val(1) << ", " << obj.get_val(2) << "]";                
+                return os;
+            }
+
+
+
     };
 };
 

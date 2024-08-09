@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/chrisser/git/private/math
+CMAKE_SOURCE_DIR = /home/chris/git/math
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/chrisser/git/private/math/build
+CMAKE_BINARY_DIR = /home/chris/git/math/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chrisser/git/private/math/build/CMakeFiles /home/chrisser/git/private/math/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chris/git/math/build/CMakeFiles /home/chris/git/math/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chrisser/git/private/math/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chris/git/math/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -129,6 +129,54 @@ math_lib/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/math_lib.dir/build.make CMakeFiles/math_lib.dir/build
 .PHONY : math_lib/fast
 
+src/custom_float.o: src/custom_float.cpp.o
+.PHONY : src/custom_float.o
+
+# target to build an object file
+src/custom_float.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/math_lib.dir/build.make CMakeFiles/math_lib.dir/src/custom_float.cpp.o
+.PHONY : src/custom_float.cpp.o
+
+src/custom_float.i: src/custom_float.cpp.i
+.PHONY : src/custom_float.i
+
+# target to preprocess a source file
+src/custom_float.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/math_lib.dir/build.make CMakeFiles/math_lib.dir/src/custom_float.cpp.i
+.PHONY : src/custom_float.cpp.i
+
+src/custom_float.s: src/custom_float.cpp.s
+.PHONY : src/custom_float.s
+
+# target to generate assembly for a file
+src/custom_float.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/math_lib.dir/build.make CMakeFiles/math_lib.dir/src/custom_float.cpp.s
+.PHONY : src/custom_float.cpp.s
+
+src/custom_int.o: src/custom_int.cpp.o
+.PHONY : src/custom_int.o
+
+# target to build an object file
+src/custom_int.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/math_lib.dir/build.make CMakeFiles/math_lib.dir/src/custom_int.cpp.o
+.PHONY : src/custom_int.cpp.o
+
+src/custom_int.i: src/custom_int.cpp.i
+.PHONY : src/custom_int.i
+
+# target to preprocess a source file
+src/custom_int.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/math_lib.dir/build.make CMakeFiles/math_lib.dir/src/custom_int.cpp.i
+.PHONY : src/custom_int.cpp.i
+
+src/custom_int.s: src/custom_int.cpp.s
+.PHONY : src/custom_int.s
+
+# target to generate assembly for a file
+src/custom_int.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/math_lib.dir/build.make CMakeFiles/math_lib.dir/src/custom_int.cpp.s
+.PHONY : src/custom_int.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -162,6 +210,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... math_lib"
+	@echo "... src/custom_float.o"
+	@echo "... src/custom_float.i"
+	@echo "... src/custom_float.s"
+	@echo "... src/custom_int.o"
+	@echo "... src/custom_int.i"
+	@echo "... src/custom_int.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

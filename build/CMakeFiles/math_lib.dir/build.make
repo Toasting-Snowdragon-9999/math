@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/chrisser/git/private/math
+CMAKE_SOURCE_DIR = /home/chris/git/math
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/chrisser/git/private/math/build
+CMAKE_BINARY_DIR = /home/chris/git/math/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/math_lib.dir/depend.make
@@ -72,28 +72,60 @@ include CMakeFiles/math_lib.dir/flags.make
 CMakeFiles/math_lib.dir/src/main.cpp.o: CMakeFiles/math_lib.dir/flags.make
 CMakeFiles/math_lib.dir/src/main.cpp.o: ../src/main.cpp
 CMakeFiles/math_lib.dir/src/main.cpp.o: CMakeFiles/math_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chrisser/git/private/math/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/math_lib.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/math_lib.dir/src/main.cpp.o -MF CMakeFiles/math_lib.dir/src/main.cpp.o.d -o CMakeFiles/math_lib.dir/src/main.cpp.o -c /home/chrisser/git/private/math/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/git/math/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/math_lib.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/math_lib.dir/src/main.cpp.o -MF CMakeFiles/math_lib.dir/src/main.cpp.o.d -o CMakeFiles/math_lib.dir/src/main.cpp.o -c /home/chris/git/math/src/main.cpp
 
 CMakeFiles/math_lib.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/math_lib.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chrisser/git/private/math/src/main.cpp > CMakeFiles/math_lib.dir/src/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/git/math/src/main.cpp > CMakeFiles/math_lib.dir/src/main.cpp.i
 
 CMakeFiles/math_lib.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/math_lib.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chrisser/git/private/math/src/main.cpp -o CMakeFiles/math_lib.dir/src/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/git/math/src/main.cpp -o CMakeFiles/math_lib.dir/src/main.cpp.s
+
+CMakeFiles/math_lib.dir/src/custom_int.cpp.o: CMakeFiles/math_lib.dir/flags.make
+CMakeFiles/math_lib.dir/src/custom_int.cpp.o: ../src/custom_int.cpp
+CMakeFiles/math_lib.dir/src/custom_int.cpp.o: CMakeFiles/math_lib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/git/math/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/math_lib.dir/src/custom_int.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/math_lib.dir/src/custom_int.cpp.o -MF CMakeFiles/math_lib.dir/src/custom_int.cpp.o.d -o CMakeFiles/math_lib.dir/src/custom_int.cpp.o -c /home/chris/git/math/src/custom_int.cpp
+
+CMakeFiles/math_lib.dir/src/custom_int.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/math_lib.dir/src/custom_int.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/git/math/src/custom_int.cpp > CMakeFiles/math_lib.dir/src/custom_int.cpp.i
+
+CMakeFiles/math_lib.dir/src/custom_int.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/math_lib.dir/src/custom_int.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/git/math/src/custom_int.cpp -o CMakeFiles/math_lib.dir/src/custom_int.cpp.s
+
+CMakeFiles/math_lib.dir/src/custom_float.cpp.o: CMakeFiles/math_lib.dir/flags.make
+CMakeFiles/math_lib.dir/src/custom_float.cpp.o: ../src/custom_float.cpp
+CMakeFiles/math_lib.dir/src/custom_float.cpp.o: CMakeFiles/math_lib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/git/math/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/math_lib.dir/src/custom_float.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/math_lib.dir/src/custom_float.cpp.o -MF CMakeFiles/math_lib.dir/src/custom_float.cpp.o.d -o CMakeFiles/math_lib.dir/src/custom_float.cpp.o -c /home/chris/git/math/src/custom_float.cpp
+
+CMakeFiles/math_lib.dir/src/custom_float.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/math_lib.dir/src/custom_float.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/git/math/src/custom_float.cpp > CMakeFiles/math_lib.dir/src/custom_float.cpp.i
+
+CMakeFiles/math_lib.dir/src/custom_float.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/math_lib.dir/src/custom_float.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/git/math/src/custom_float.cpp -o CMakeFiles/math_lib.dir/src/custom_float.cpp.s
 
 # Object files for target math_lib
 math_lib_OBJECTS = \
-"CMakeFiles/math_lib.dir/src/main.cpp.o"
+"CMakeFiles/math_lib.dir/src/main.cpp.o" \
+"CMakeFiles/math_lib.dir/src/custom_int.cpp.o" \
+"CMakeFiles/math_lib.dir/src/custom_float.cpp.o"
 
 # External object files for target math_lib
 math_lib_EXTERNAL_OBJECTS =
 
 math_lib: CMakeFiles/math_lib.dir/src/main.cpp.o
+math_lib: CMakeFiles/math_lib.dir/src/custom_int.cpp.o
+math_lib: CMakeFiles/math_lib.dir/src/custom_float.cpp.o
 math_lib: CMakeFiles/math_lib.dir/build.make
 math_lib: CMakeFiles/math_lib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/chrisser/git/private/math/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable math_lib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/chris/git/math/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable math_lib"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/math_lib.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -105,6 +137,6 @@ CMakeFiles/math_lib.dir/clean:
 .PHONY : CMakeFiles/math_lib.dir/clean
 
 CMakeFiles/math_lib.dir/depend:
-	cd /home/chrisser/git/private/math/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/chrisser/git/private/math /home/chrisser/git/private/math /home/chrisser/git/private/math/build /home/chrisser/git/private/math/build /home/chrisser/git/private/math/build/CMakeFiles/math_lib.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/chris/git/math/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/chris/git/math /home/chris/git/math /home/chris/git/math/build /home/chris/git/math/build /home/chris/git/math/build/CMakeFiles/math_lib.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/math_lib.dir/depend
 

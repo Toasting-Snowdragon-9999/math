@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/chrisser/git/private/math/include
+CXX_INCLUDES = -I/home/chris/git/math/include
 
 CXX_FLAGS = -std=gnu++11
 

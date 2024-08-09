@@ -1,6 +1,8 @@
 #include <iostream>
 #include "matrix.hpp"
 #include "vector3d.hpp"
+#include "custom_int.hpp"
+#include <limits>
 
 int main(){
     std::cout << "Hello World!" << std::endl;
@@ -15,5 +17,16 @@ int main(){
     math::Vec3d<float> v3;
     v3 = v + v2;
     v3.print();
+
+    int32_t a;
+    std::cout << "Size of int32_t: " << sizeof(a) << " bytes\n";
+
+    float b;
+    std::cout << "Size of float: " << sizeof(b) << " bytes\n";
+
+    math::c_int c = 2;
+    std::cout << "Size of c_int: " << sizeof(c) << " bytes\n";
+    std::cout << m3 << std::endl;
+
     return 0;
 }

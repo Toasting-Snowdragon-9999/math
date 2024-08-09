@@ -8,7 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/chrisser/git/private/math/src/main.cpp" "CMakeFiles/math_lib.dir/src/main.cpp.o" "gcc" "CMakeFiles/math_lib.dir/src/main.cpp.o.d"
+  "/home/chris/git/math/src/custom_float.cpp" "CMakeFiles/math_lib.dir/src/custom_float.cpp.o" "gcc" "CMakeFiles/math_lib.dir/src/custom_float.cpp.o.d"
+  "/home/chris/git/math/src/custom_int.cpp" "CMakeFiles/math_lib.dir/src/custom_int.cpp.o" "gcc" "CMakeFiles/math_lib.dir/src/custom_int.cpp.o.d"
+  "/home/chris/git/math/src/main.cpp" "CMakeFiles/math_lib.dir/src/main.cpp.o" "gcc" "CMakeFiles/math_lib.dir/src/main.cpp.o.d"
   )
 
 # Targets to which this target links.

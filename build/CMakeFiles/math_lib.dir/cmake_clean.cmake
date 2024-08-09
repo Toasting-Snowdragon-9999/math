@@ -1,4 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/math_lib.dir/src/custom_float.cpp.o"
+  "CMakeFiles/math_lib.dir/src/custom_float.cpp.o.d"
+  "CMakeFiles/math_lib.dir/src/custom_int.cpp.o"
+  "CMakeFiles/math_lib.dir/src/custom_int.cpp.o.d"
   "CMakeFiles/math_lib.dir/src/main.cpp.o"
   "CMakeFiles/math_lib.dir/src/main.cpp.o.d"
   "math_lib"
