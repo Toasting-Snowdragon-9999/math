@@ -45,6 +45,46 @@ class Vec3d {
             std::cout << "]" << std::endl;
         }
 
+        Vec3d operator+(Vec3d vec){
+            std::vector<T> temp;
+            for(int i = 0; i < _vec.size(); i++){
+                temp.push_back(_vec[i] + vec.get_val(i));
+            }
+            return Vec3d(temp);
+        }
+
+        Vec3d operator-(Vec3d vec){
+            std::vector<T> temp;
+            for(int i = 0; i < _vec.size(); i++){
+                temp.push_back(_vec[i] - vec.get_val(i));
+            }
+            return Vec3d(temp);
+        }
+
+        Vec3d operator*(Vec3d vec){
+            std::vector<T> temp;
+            for(int i = 0; i < _vec.size(); i++){
+                temp.push_back(_vec[i] * vec.get_val(i));
+            }
+            return Vec3d(temp);
+        }
+
+        Vec3d operator/(Vec3d vec){
+            std::vector<T> temp;
+            for(int i = 0; i < _vec.size(); i++){
+                temp.push_back(_vec[i] / vec.get_val(i));
+            }
+            return Vec3d(temp);
+        }
+
+        Vec3d operator*(T scalar){
+            std::vector<T> temp;
+            for(int i = 0; i < _vec.size(); i++){
+                temp.push_back(_vec[i] * scalar);
+            }
+            return Vec3d(temp);
+        }
+
 };
 
 #endif // VECTOR3D_HPP

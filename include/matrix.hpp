@@ -24,7 +24,7 @@ namespace math{
                     throw std::invalid_argument("Position out of bounds");
                 }
                 
-            };
+            }
 
             void transpose (){
                 if (!verify_matrix()){
@@ -46,6 +46,7 @@ namespace math{
                         return false;
                     }
                 }
+                return true;
             }
 
             std::vector<int> get_size(){
@@ -74,6 +75,33 @@ namespace math{
                 }
                 else{
                     throw std::invalid_argument("Position out of bounds");
+                }
+            }
+
+            Matrix operator-(Matrix m){
+                if (verify_matrix() && m.verify_matrix()){
+                    std::vector<std::vector<T>> temp;
+                    for(int i = 0; i < _matrix.size(); i++){
+                        std::vector<T> row;
+                        for(int j = 0; j < _matrix[i].size(); j++){
+                            row.push_back(_matrix[i][j] - m._matrix[i][j]);
+                        }
+                        temp.push_back(row);
+                    }
+                    return Matrix(temp);
+                }
+                else{
+                    throw std::invalid_argument("Position out of bounds");
+                }
+            }
+
+            void print(){
+                for(int i = 0; i < _matrix.size(); i++){
+                    std::cout << "[";
+                    for(int j = 0; j < _matrix[i].size(); j++){
+                        std::cout << _matrix[i][j] << " ";
+                    }
+                    std::cout << "]" << std::endl;
                 }
             }
     };
