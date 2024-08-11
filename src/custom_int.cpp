@@ -71,6 +71,21 @@ math::c_int& math::c_int::operator++(){
     return *this;
 }
 
+math::c_int& math::c_int::operator+=(c_int i ){
+    _int+=i.get_val();
+    return *this;
+}
+
+math::c_int& math::c_int::operator-=(c_int i ){
+    _int-=i.get_val();
+    return *this;
+}
+
+math::c_int& math::c_int::operator%=(c_int i){
+    _int%=i.get_val();
+    return *this;
+}
+
 math::c_int& math::c_int::operator*=(math::c_int i){
     _int*=1;
     return *this;

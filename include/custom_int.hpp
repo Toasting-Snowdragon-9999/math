@@ -63,6 +63,8 @@ class c_int{
 
         friend std::ostream& operator<<(std::ostream& os, const c_int& obj);
     };
+    
+    std::ostream& operator<<(std::ostream& os, const c_int& obj);
 
 }
 #endif

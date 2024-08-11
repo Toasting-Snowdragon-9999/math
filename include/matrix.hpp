@@ -4,6 +4,8 @@
 #include <vector>
 #include <iostream>
 #include <stdexcept>
+#include "vector3d.hpp"
+
 namespace math{
     template <typename T>
     class Matrix {
@@ -24,7 +26,7 @@ namespace math{
                     _matrix[position[0]][position[1]] = value;
                 }
                 else{
-                    throw std::invalid_argument("Position out of bounds");
+                    throw std::invalid_argument("Matrix is not valid");
                 }
             }
 
@@ -42,7 +44,7 @@ namespace math{
 
             void transpose (){
                 if (!verify_matrix()){
-                    throw std::invalid_argument("Position out of bounds");
+                    throw std::invalid_argument("Matrix is not valid");
                 }
                 std::vector<std::vector<T>> temp;
                 for(int i = 0; i < _matrix.size(); i++){
@@ -71,11 +73,11 @@ namespace math{
                     return length;
                 }
                 else{
-                    throw std::invalid_argument("Position out of bounds");
+                    throw std::invalid_argument("Matrix is not valid");
                 }
             }
 
-            Matrix operator+(Matrix m){
+            Matrix<T> operator+(Matrix<T> m){
                 if (verify_matrix(_matrix) && m.verify_matrix(m.get_matrix())){
                     std::vector<std::vector<T>> temp;
                     for(int i = 0; i < _matrix.size(); i++){
@@ -88,11 +90,63 @@ namespace math{
                     return Matrix(temp);
                 }
                 else{
-                    throw std::invalid_argument("Position out of bounds");
+                    throw std::invalid_argument("Matrix is not valid");
                 }
             }
 
-            Matrix operator-(Matrix m){
+            Matrix<T> operator+(T m){
+                if (verify_matrix(_matrix)){
+                    std::vector<std::vector<T>> temp;
+                    for(int i = 0; i < _matrix.size(); i++){
+                        std::vector<T> row;
+                        for(int j = 0; j < _matrix[i].size(); j++){
+                            row.push_back(_matrix[i][j] + m);
+                        }
+                        temp.push_back(row);
+                    }
+                    return Matrix(temp);
+                }
+                else{
+                    throw std::invalid_argument("Matrix is not valid");
+                }
+            }
+
+            Matrix<T> operator+(Vec3d<T> m){
+                if (verify_matrix(_matrix) && _matrix.size() <= 3){
+                    std::vector<std::vector<T>> temp = _matrix;
+                    for(int i = 0; i < 3; i++){
+                        temp[i].push_back(m[i]);
+                    }
+                    if(_matrix.size() < 3){
+                        for(int i = 3; i < _matrix.size(); i++){
+                            temp[i].push_back(1);
+                        }
+                    }
+                    return Matrix<T>(temp);
+                }
+                else{
+                    throw std::invalid_argument("Matrix is not valid");
+                }
+            }
+
+            Matrix<T> operator-(T m){
+                if (verify_matrix(_matrix)){
+                    std::vector<std::vector<T>> temp;
+                    for(int i = 0; i < _matrix.size(); i++){
+                        std::vector<T> row;
+                        for(int j = 0; j < _matrix[i].size(); j++){
+                            row.push_back(_matrix[i][j] - m);
+                        }
+                        temp.push_back(row);
+                    }
+                    return Matrix<T>(temp);
+                }
+                else{
+                    throw std::invalid_argument("Matrix is not valid");
+                }
+            }
+
+            Matrix<T> operator-(Matrix<T> m){
                 if (verify_matrix(_matrix) && m.verify_matrix(m.get_matrix())){
                     std::vector<std::vector<T>> temp;
                     for(int i = 0; i < _matrix.size(); i++){
@@ -102,14 +156,14 @@ namespace math{
                         }
                         temp.push_back(row);
                     }
-                    return Matrix(temp);
+                    return Matrix<T>(temp);
                 }
                 else{
-                    throw std::invalid_argument("Position out of bounds");
+                    throw std::invalid_argument("Matrix is not valid");
                 }
             }
 
-            Matrix operator*(T scalar){
+            Matrix<T> operator*(T scalar){
                 if (verify_matrix(_matrix)){
                     std::vector<std::vector<T>> temp;
                     for(int i = 0; i < _matrix.size(); i++){
@@ -119,10 +173,27 @@ namespace math{
                         }
                         temp.push_back(row);
                     }
-                    return Matrix(temp);
+                    return Matrix<T>(temp);
                 }
                 else{
-                    throw std::invalid_argument("Position out of bounds");
+                    throw std::invalid_argument("Matrix is not valid");
+                }
+            }
+
+            Matrix<T> operator*(Vec3d<T> vec){
+                if (verify_matrix(_matrix)){
+                    std::vector<T> temp(_matrix.size(), 0);
+                    for(int i = 0; i < _matrix.size(); i++){
+                        for(int j = 0; j < _matrix[i].size(); j++){
+                            temp[i] += _matrix[i][j] * vec[j];
+                        }
+                    }
+                    std::vector<std::vector<T>> temp2;
+                    temp2.push_back(temp);
+                    return Matrix<T>(temp2);
+                }
+                else{
+                    throw std::invalid_argument("Matrix is not valid");
                 }
             }
 

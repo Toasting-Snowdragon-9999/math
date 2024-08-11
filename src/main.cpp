@@ -2,6 +2,8 @@
 #include "matrix.hpp"
 #include "vector3d.hpp"
 #include "custom_int.hpp"
+#include "custom_float.hpp"
+#include "complex_number.hpp"
 #include <limits>
 
 int main(){
@@ -15,6 +17,7 @@ int main(){
     math::Vec3d<float> v({1.0, 2.0, 3.0});
     math::Vec3d<float> v2({1.0, 2.0, 3.0});
     math::Vec3d<float> v3;
+    std::vector <float> v4(3, 0);
     v3 = v + v2;
     v3.print();
 
@@ -26,7 +29,10 @@ int main(){
 
     math::c_int c = 2;
     std::cout << "Size of c_int: " << sizeof(c) << " bytes\n";
-    std::cout << m3 << std::endl;
+
+    for(auto a: v4){
+        std::cout << a << std::endl;
+    }
 
     return 0;
 }

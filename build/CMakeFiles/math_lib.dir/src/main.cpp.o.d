@@ -149,6 +149,7 @@ CMakeFiles/math_lib.dir/src/main.cpp.o: /home/chris/git/math/src/main.cpp \
  /usr/include/c++/11/bits/stl_bvector.h \
  /usr/include/c++/11/bits/vector.tcc \
  /home/chris/git/math/include/vector3d.hpp \
+ /home/chris/git/math/include/vector3d.hpp \
  /home/chris/git/math/include/custom_int.hpp /usr/include/c++/11/cmath \
  /usr/include/math.h /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -159,4 +160,6 @@ CMakeFiles/math_lib.dir/src/main.cpp.o: /home/chris/git/math/src/main.cpp \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
  /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
+ /home/chris/git/math/include/custom_float.hpp \
+ /home/chris/git/math/include/complex_number.hpp \
  /usr/include/c++/11/limits
