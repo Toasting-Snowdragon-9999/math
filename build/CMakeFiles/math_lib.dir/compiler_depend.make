@@ -568,15 +568,12 @@ CMakeFiles/math_lib.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/include/c++/11/bits/ostream.tcc \
   /usr/include/c++/11/istream \
   /usr/include/c++/11/bits/istream.tcc \
-  ../include/matrix.hpp \
+  ../include/arbitrary_vector.hpp \
   /usr/include/c++/11/vector \
   /usr/include/c++/11/bits/stl_uninitialized.h \
   /usr/include/c++/11/bits/stl_vector.h \
   /usr/include/c++/11/bits/stl_bvector.h \
   /usr/include/c++/11/bits/vector.tcc \
-  ../include/vector3d.hpp \
-  ../include/vector3d.hpp \
-  ../include/custom_int.hpp \
   /usr/include/c++/11/cmath \
   /usr/include/math.h \
   /usr/include/x86_64-linux-gnu/bits/math-vector.h \
@@ -588,6 +585,11 @@ CMakeFiles/math_lib.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
+  ../include/matrix.hpp \
+  ../include/matrix.hpp \
+  ../include/vector3d.hpp \
+  ../include/arbitrary_vector.hpp \
+  ../include/custom_int.hpp \
   ../include/custom_float.hpp \
   ../include/complex_number.hpp \
   /usr/include/c++/11/limits
@@ -704,6 +706,8 @@ CMakeFiles/math_lib.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h:
 
 /usr/include/c++/11/bits/range_access.h:
+
+../include/arbitrary_vector.hpp:
 
 /usr/include/c++/11/bits/exception.h:
 

@@ -4,7 +4,6 @@
 #include <vector>
 #include <iostream>
 #include <stdexcept>
-#include "vector3d.hpp"
 
 namespace math{
     template <typename T>
@@ -111,24 +110,6 @@ namespace math{
                 }
             }
 
-            Matrix<T> operator+(Vec3d<T> m){
-                if (verify_matrix(_matrix) && _matrix.size() <= 3){
-                    std::vector<std::vector<T>> temp = _matrix;
-                    for(int i = 0; i < 3; i++){
-                        temp[i].push_back(m[i]);
-                    }
-                    if(_matrix.size() < 3){
-                        for(int i = 3; i < _matrix.size(); i++){
-                            temp[i].push_back(1);
-                        }
-                    }
-                    return Matrix<T>(temp);
-                }
-                else{
-                    throw std::invalid_argument("Matrix is not valid");
-                }
-            }
-
             Matrix<T> operator-(T m){
                 if (verify_matrix(_matrix)){
                     std::vector<std::vector<T>> temp;
@@ -180,23 +161,6 @@ namespace math{
                 }
             }
 
-            Matrix<T> operator*(Vec3d<T> vec){
-                if (verify_matrix(_matrix)){
-                    std::vector<T> temp(_matrix.size(), 0);
-                    for(int i = 0; i < _matrix.size(); i++){
-                        for(int j = 0; j < _matrix[i].size(); j++){
-                            temp[i] += _matrix[i][j] * vec[j];
-                        }
-                    }
-                    std::vector<std::vector<T>> temp2;
-                    temp2.push_back(temp);
-                    return Matrix<T>(temp2);
-                }
-                else{
-                    throw std::invalid_argument("Matrix is not valid");
-                }
-            }
-
             void print(){
                 for(int i = 0; i < _matrix.size(); i++){
                     std::cout << "[";
@@ -212,16 +176,23 @@ namespace math{
             }
 
             friend std::ostream& operator<<(std::ostream& os, const Matrix& obj) {
+                os << "[";
                 for (int i = 0; i < obj.get_cols(0).size(); ++i) {
-                    os << "[ ";
+                    os << "";
                     for (int j = 0; j < obj.get_rows(0).size(); ++j) {
                         os << obj.get_rows(i)[j];
                         if (j < obj.get_rows(i).size() - 1) {
                             os << ", ";
                         }
                     }
-                    os << " ]" << std::endl;
+                    if( i < obj.get_cols(0).size()-1){
+                        os << "" << std::endl;
+                    }
+                    else{
+                        os << "";
+                    }
                 }
+                os << "]" << std::endl;
                 return os;
             }
     };

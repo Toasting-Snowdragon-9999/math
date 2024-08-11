@@ -1,9 +1,11 @@
 #include <iostream>
+#include "arbitrary_vector.hpp"
 #include "matrix.hpp"
 #include "vector3d.hpp"
 #include "custom_int.hpp"
 #include "custom_float.hpp"
 #include "complex_number.hpp"
+
 #include <limits>
 
 int main(){
@@ -12,15 +14,10 @@ int main(){
     math::Matrix<float> m(matrix);
     math::Matrix<float> m2(matrix);
     math::Matrix<float> m3;
+    math::Complex<float> c1(-1, -2);
     m3 = m + m2;
     m3.print();
-    math::Vec3d<float> v({1.0, 2.0, 3.0});
-    math::Vec3d<float> v2({1.0, 2.0, 3.0});
-    math::Vec3d<float> v3;
-    std::vector <float> v4(3, 0);
-    v3 = v + v2;
-    v3.print();
-
+    math::Vec<float> v1({1, 2, 3});
     int32_t a;
     std::cout << "Size of int32_t: " << sizeof(a) << " bytes\n";
 
@@ -29,10 +26,11 @@ int main(){
 
     math::c_int c = 2;
     std::cout << "Size of c_int: " << sizeof(c) << " bytes\n";
-
-    for(auto a: v4){
-        std::cout << a << std::endl;
-    }
+    math::Matrix <float> m4;
+    m4 = v1|m3;
+    std::cout << m4 << std::endl;
+    std::cout << v1 << std::endl;
+    std::cout << c1 << std::endl;
 
     return 0;
 }

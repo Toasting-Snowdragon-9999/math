@@ -18,11 +18,13 @@ set(SOURCES
 )
 
 set(HEADERS
+    include/arbitrary_vector.hpp
     include/matrix.hpp
     include/vector3d.hpp
     include/custom_int.hpp
     include/custom_float.hpp
     include/general_math.hpp
+
 )
 # # Include directories
 # include_directories(${NLOPT_INCLUDE_DIRS})
