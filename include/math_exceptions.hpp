@@ -7,7 +7,8 @@ namespace math{
 namespace exceptions {
 
     enum ExceptionType{
-        RANGE_ERROR = 1
+        RANGE_ERROR = 1,
+        MATRIX_SIZE_ERROR = 2
         
     }; 
 
@@ -19,6 +20,9 @@ namespace exceptions {
                 switch (_type){
                     case RANGE_ERROR:
                         return "Range Error";
+                        break;
+                    case MATRIX_SIZE_ERROR:
+                        return "Invalid matrix size, one or more rows are not the same size!";
                         break;
                 }
             }

@@ -4,6 +4,7 @@
 #include <vector>
 #include <iostream>
 #include <stdexcept>
+#include "math_exceptions.hpp"
 
 namespace math{
     template <typename T>
@@ -25,7 +26,7 @@ namespace math{
                     _matrix[position[0]][position[1]] = value;
                 }
                 else{
-                    throw std::invalid_argument("Matrix is not valid");
+                    throw math::exceptions::MathException(math::exceptions::RANGE_ERROR, "Position out of bounds");
                 }
             }
 
@@ -43,7 +44,7 @@ namespace math{
 
             void transpose (){
                 if (!verify_matrix()){
-                    throw std::invalid_argument("Matrix is not valid");
+                    throw math::exceptions::MathException(math::exceptions::MATRIX_SIZE_ERROR, "Matrix is not valid, one or more rows are not the same size!");
                 }
                 std::vector<std::vector<T>> temp;
                 for(int i = 0; i < _matrix.size(); i++){
@@ -64,6 +65,56 @@ namespace math{
                 return true;
             }
 
+            double norm(){
+                /*
+                This method calculates the frobenius norm of a matrix
+                */
+                if (verify_matrix(_matrix)){
+                    sum = 0.0;
+                    for(int i = 0; i < _matrix.size(); i++){
+                        for(int j = 0; j < _matrix[i].size(); j++){
+                            sum += _matrix[i][j] * _matrix[i][j];
+                        }
+                    }
+                    return sqrt(sum);
+                }
+                else{
+                    throw math::exceptions::MathException(math::exceptions::MATRIX_SIZE_ERROR, "Matrix is not valid, one or more rows are not the same size!");
+                }
+            }
+
+            double det(){
+                if (verify_matrix(_matrix)){
+                    if(_matrix.size() == 2 && _matrix[0].size() == 2){
+                        return _matrix[0][0] * _matrix[1][1] - _matrix[0][1] * _matrix[1][0];
+                    }
+                    else{
+                        if (_matrix.size() != _matrix[0].size()){
+                            throw math::exceptions::MathException(math::exceptions::MATRIX_SIZE_ERROR, "Matrix is not square!");
+                        }
+                        double sum = 0;
+                        for(int i = 0; i < _matrix.size(); i++){
+                            std::vector<std::vector<T>> temp;
+                            for(int j = 1; j < _matrix.size(); j++){
+                                std::vector<T> row;
+                                for(int k = 0; k < _matrix.size(); k++){
+                                    if(k != i){
+                                        row.push_back(_matrix[j][k]);
+                                    }
+                                }
+                                temp.push_back(row);
+                            }
+                            sum += pow(-1, i) * _matrix[0][i] * det(temp);
+                        }
+                        return sum;
+                    }
+                }
+                else{
+                    throw math::exceptions::MathException(math::exceptions::MATRIX_SIZE_ERROR, "Matrix is not valid, one or more rows are not the same size!");
+                }
+            }
+                
+
             std::vector<int> get_size(){
                 if (verify_matrix(_matrix)){
                     std::vector<int> length;
@@ -72,7 +123,7 @@ namespace math{
                     return length;
                 }
                 else{
-                    throw std::invalid_argument("Matrix is not valid");
+                    throw math::exceptions::MathException(math::exceptions::MATRIX_SIZE_ERROR, "Matrix is not valid, one or more rows are not the same size!");
                 }
             }
 
@@ -89,7 +140,7 @@ namespace math{
                     return Matrix(temp);
                 }
                 else{
-                    throw std::invalid_argument("Matrix is not valid");
+                    throw math::exceptions::MathException(math::exceptions::MATRIX_SIZE_ERROR, "Matrix is not valid, one or more rows are not the same size!");
                 }
             }
 
@@ -106,7 +157,7 @@ namespace math{
                     return Matrix(temp);
                 }
                 else{
-                    throw std::invalid_argument("Matrix is not valid");
+                    throw math::exceptions::MathException(math::exceptions::MATRIX_SIZE_ERROR, "Matrix is not valid, one or more rows are not the same size!");
                 }
             }
 
@@ -123,7 +174,7 @@ namespace math{
                     return Matrix<T>(temp);
                 }
                 else{
-                    throw std::invalid_argument("Matrix is not valid");
+                    throw math::exceptions::MathException(math::exceptions::MATRIX_SIZE_ERROR, "Matrix is not valid, one or more rows are not the same size!");
                 }
             }
 
@@ -140,7 +191,7 @@ namespace math{
                     return Matrix<T>(temp);
                 }
                 else{
-                    throw std::invalid_argument("Matrix is not valid");
+                    throw math::exceptions::MathException(math::exceptions::MATRIX_SIZE_ERROR, "Matrix is not valid, one or more rows are not the same size!");
                 }
             }
 
@@ -157,9 +208,67 @@ namespace math{
                     return Matrix<T>(temp);
                 }
                 else{
-                    throw std::invalid_argument("Matrix is not valid");
+                    throw math::exceptions::MathException(math::exceptions::MATRIX_SIZE_ERROR, "Matrix is not valid, one or more rows are not the same size!");
                 }
             }
+
+            Matrix<T> operator*(Matrix<T> m){
+                if (verify_matrix(_matrix) && m.verify_matrix(m.get_matrix())){
+                    if(get_rows(0).size() == m.get_cols(0) || get_cols(0).size() == m.get_rows(0).size()){
+                        std::vector<std::vector<T>> temp;
+                        for(int i = 0; i < _matrix.size(); i++){
+                            std::vector<T> row;
+                            for(int j = 0; j < m.get_cols(0).size(); j++){
+                                T sum = 0;
+                                for(int k = 0; k < get_cols(0).size(); k++){
+                                    sum += _matrix[i][k] * m.get_rows(k)[j];
+                                }
+                                row.push_back(sum);
+                            }
+                            temp.push_back(row);
+                        }
+                        return Matrix<T>(temp);
+
+                    }
+                    else{
+                        throw math::exceptions::MathException(math::exceptions::MATRIX_SIZE_ERROR, "Matrix is not valid, one or more rows are not the same size!");
+                    }
+                }  
+            }
+
+            bool operator==(Matrix<T> m){
+                if (verify_matrix(_matrix) && m.verify_matrix(m.get_matrix())){
+                    for(int i = 0; i < _matrix.size(); i++){
+                        for(int j = 0; j < _matrix[i].size(); j++){
+                            if(_matrix[i][j] != m._matrix[i][j]){
+                                return false;
+                            }
+                        }
+                    }
+                    return true;
+                }
+                else{
+                    throw math::exceptions::MathException(math::exceptions::MATRIX_SIZE_ERROR, "Matrix is not valid, one or more rows are not the same size!");
+                }
+            }
+
+            bool operator!=(Matrix<T> m){
+                if (verify_matrix(_matrix) && m.verify_matrix(m.get_matrix())){
+                    for(int i = 0; i < _matrix.size(); i++){
+                        for(int j = 0; j < _matrix[i].size(); j++){
+                            if(_matrix[i][j] != m._matrix[i][j]){
+                                return true;
+                            }
+                        }
+                    }
+                    return false;
+                }
+                else{
+                    throw math::exceptions::MathException(math::exceptions::MATRIX_SIZE_ERROR, "Matrix is not valid, one or more rows are not the same size!");
+                }
+            }
+
+            bool 
 
             void print(){
                 for(int i = 0; i < _matrix.size(); i++){
@@ -223,7 +332,7 @@ namespace math{
                     _size = {rotmat.size(), rotmat[0].size()};
                 }
                 else{
-                    throw std::invalid_argument("Position out of bounds");
+                    throw math::exceptions::MathException(math::exceptions::MATRIX_SIZE_ERROR, "Transformation Matrix is not valid, one or more rows are not the same size!");
                 }
             }
     };
