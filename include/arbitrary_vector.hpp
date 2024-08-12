@@ -56,6 +56,10 @@ class Vec{
             return _vec[idx];
         }
 
+        std::vector <T> get_vector() const{
+            return _vec;
+        }
+
         uint8_t get_size() const{
             return _size;
         }

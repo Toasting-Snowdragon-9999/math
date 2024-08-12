@@ -8,7 +8,8 @@ namespace exceptions {
 
     enum ExceptionType{
         RANGE_ERROR = 1,
-        MATRIX_SIZE_ERROR = 2
+        MATRIX_SIZE_ERROR = 2,
+        DET_ERROR = 3
         
     }; 
 
@@ -23,6 +24,9 @@ namespace exceptions {
                         break;
                     case MATRIX_SIZE_ERROR:
                         return "Invalid matrix size, one or more rows are not the same size!";
+                        break;
+                    case DET_ERROR:
+                        return "Determinant is zero!";
                         break;
                 }
             }

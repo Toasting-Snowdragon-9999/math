@@ -67,27 +67,17 @@ bool test_ivector(math::Vec<int> v, math::Vec<int> v2){
 
 int main(){
     std::cout << "Hello World!" << std::endl;
-    std::vector<std::vector<float>> matrix = {{1.1, 2.1, 3.0}, {4.1, 5.2, 6.5}, {7.1, 8.2, 9.9}};
-    math::Matrix<float> m(matrix);
-    math::Matrix<float> m2(matrix);
-    math::Matrix<float> m3;
-    math::Complex<float> c1(-1, -2);
+    std::vector<std::vector<double>> matrix = {{1.1, 2.1, 3.0}, {4.1, 5.2, 6.5}, {7.1, 8.2, 9.9}};
+    math::Matrix<double> m(matrix);
+    math::Matrix<double> m2(matrix);
+    math::Matrix<double> m3;
+    math::Matrix<double> m4;
+    math::Complex<double> c1(-1, -2);
     m3 = m + m2;
-    m3.print();
-    math::Vec<float> v1({1, 2, 3});
-    int32_t a;
-    std::cout << "Size of int32_t: " << sizeof(a) << " bytes\n";
-
-    float b;
-    std::cout << "Size of float: " << sizeof(b) << " bytes\n";
-
-    math::c_int c = 2;
-    std::cout << "Size of c_int: " << sizeof(c) << " bytes\n";
-    math::Matrix <float> m4;
-    m4 = v1|m3;
+    double a = m3.det();
+    math::Vec<double> v1({1, 2, 3});
+    m4 = m3^-1;
+    std::cout << m3 << std::endl;
     std::cout << m4 << std::endl;
-    std::cout << v1 << std::endl;
-    std::cout << c1 << std::endl;
-
     return 0;
 }
