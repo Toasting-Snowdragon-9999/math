@@ -1,3 +1,0 @@
-/home/chris/git/math/build/CMakeFiles/math_lib.dir
-/home/chris/git/math/build/CMakeFiles/edit_cache.dir
-/home/chris/git/math/build/CMakeFiles/rebuild_cache.dir

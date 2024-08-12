@@ -24,6 +24,7 @@ set(HEADERS
     include/custom_int.hpp
     include/custom_float.hpp
     include/general_math.hpp
+    include/math_exceptions.hpp
 
 )
 # # Include directories

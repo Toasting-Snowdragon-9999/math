@@ -144,7 +144,7 @@ class Vec{
                 std::vector<T> temp(matrix.get_cols(0).size(), 0);
                 for(int i = 0; i < matrix.get_rows(0).size(); i++){
                     for(int j = 0; j < temp.size(); j++){
-                        temp[i] += matrix.get_matrix[i][j] * _vec[j];
+                        temp[i] += matrix.get_matrix()[i][j] * _vec[j];
                     }
                 }
                 return Vec<T>(temp);

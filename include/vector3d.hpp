@@ -3,8 +3,9 @@
 
 #include <vector>
 #include <iostream>
-#include <stdexcept>
+#include "math_exceptions.hpp"
 #include "arbitrary_vector.hpp"
+
 
 namespace math{
     template <typename T>
@@ -15,7 +16,7 @@ namespace math{
 
             Vec3d(std::vector<T> vec): Vec<T>(vec){
                 if (vec.size() != 3){
-                    throw std::invalid_argument("Vector size must be 3");
+                    throw math::exceptions::MathException(math::exceptions::RANGE_ERROR, "Vector size must be 3");
                 }
 
             };
