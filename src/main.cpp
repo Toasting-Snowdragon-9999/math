@@ -1,10 +1,12 @@
 #include <iostream>
-#include "arbitrary_vector.hpp"
+#include "general_math.hpp"
+#include "general_vector.hpp"
 #include "matrix.hpp"
 #include "vector3d.hpp"
 #include "custom_int.hpp"
 #include "custom_float.hpp"
 #include "complex_number.hpp"
+
 
 #include <limits>
 
@@ -43,30 +45,31 @@ bool test_fmatrix(math::Matrix<float> m, math::Matrix<float> m2){
 }
 
 bool test_dmatrix(math::Matrix<double> m, math::Matrix<double> m2){
-    
+    return true;
 }
 
 bool test_imatrix(math::Matrix<int> m, math::Matrix<int> m2){
-    
+    return true;
 }
 
 
 bool test_fvector(math::Vec<float> v, math::Vec<float> v2){
-    
+    return true;
 }
 
 bool test_dvector(math::Vec<double> v, math::Vec<double> v2){
-    
+    return true;
 }
 
 bool test_ivector(math::Vec<int> v, math::Vec<int> v2){
-    
+    return true;
 }
 
 
 
 int main(){
     std::cout << "Hello World!" << std::endl;
+    math::c_float c = 10.5;
     std::vector<std::vector<double>> matrix = {{1.1, 2.1, 3.0}, {4.1, 5.2, 6.5}, {7.1, 8.2, 9.9}};
     math::Matrix<double> m(matrix);
     math::Matrix<double> m2(matrix);
@@ -76,6 +79,9 @@ int main(){
     m3 = m + m2;
     double a = m3.det();
     math::Vec<double> v1({1, 2, 3});
+    math::Vec<math::c_float> v2({c, 9.22, 2.45, math::PI});
+    std::cout << v2 << std::endl;
+    std::cout << sizeof(c) << std::endl;
     m4 = m3^-1;
     std::cout << m3 << std::endl;
     std::cout << m4 << std::endl;

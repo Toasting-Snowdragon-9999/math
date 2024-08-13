@@ -1,5 +1,5 @@
-#ifndef CUSTOM_INT_HPP
-#define CUSTOM_INT_HPP
+#ifndef CUSTOM_FLOAT_HPP
+#define CUSTOM_FLOAT_HPP
 #include <vector>
 #include <iostream>
 #include <cmath>
@@ -64,4 +64,4 @@ class c_float{
         friend std::ostream& operator<<(std::ostream& os, const c_float& obj);
 };
 }
-#endif
+#endif  // CUSTOM_FLOAT_HPP

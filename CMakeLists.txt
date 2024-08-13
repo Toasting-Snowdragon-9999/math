@@ -18,7 +18,7 @@ set(SOURCES
 )
 
 set(HEADERS
-    include/arbitrary_vector.hpp
+    include/general_vector.hpp
     include/matrix.hpp
     include/vector3d.hpp
     include/custom_int.hpp

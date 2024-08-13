@@ -1,5 +1,5 @@
-#ifndef ARBITRARY_VECTOR_HPP
-#define ARBITRARY_VECTOR_HPP
+#ifndef GENERAL_VECTOR_HPP
+#define GENERAL_VECTOR_HPP
 
 /*
 Make the vec3d and vec4d to inherit from arbitrary_vector

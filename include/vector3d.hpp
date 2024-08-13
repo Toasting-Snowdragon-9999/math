@@ -4,7 +4,7 @@
 #include <vector>
 #include <iostream>
 #include "math_exceptions.hpp"
-#include "arbitrary_vector.hpp"
+#include "general_vector.hpp"
 
 
 namespace math{
