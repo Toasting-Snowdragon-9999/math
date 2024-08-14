@@ -42,7 +42,12 @@ class Vec{
                 _vec[i] = vec[i];
             }
         }
-
+        /**
+         * @brief This will set the value of the vector at a given position
+         * 
+         * @param position The position in the vector to set the value. 
+         * @param value The value to set at the position.
+         */
         void set_val(uint8_t position, T value){
             if (position < _size){
                 _vec[position] = value;
@@ -51,7 +56,11 @@ class Vec{
                 throw std::invalid_argument("Position out of bounds");
             }
         }
-
+        
+        /**
+         * @brief This will return the value of the vector at a given position
+         * @param idx The position in the vector to get the value.
+         */
         T get_val(uint8_t idx) const{
             return _vec[idx];
         }
@@ -64,6 +73,10 @@ class Vec{
             return _size;
         }
 
+        /**
+         * @brief This method will return the norm of the vector, by this formular sqrt(x1^2 + x2^2 + ... + xn^2)
+         * @return This will return the value of the norm of the vector in type: double
+         */
         double norm(){
             T sum = 0;
             for(int i = 0; i < _vec.size(); i++){
@@ -72,11 +85,11 @@ class Vec{
             return std::sqrt(sum);
         }
 
+        /**
+        @brief This method returns the sum of the abosulte value of the vector
+        also called the manhatten norm.
+        */
         double manhatten_norm(){
-            /*
-            * @brief This method returns the norm of the abosulte value of the vector
-            also called the manhatten norm.
-            */
             T sum = 0;
             for(int i = 0; i < _vec.size(); i++){
                 sum += std::sqrt(_vec[i]*_vec[i]);
@@ -84,6 +97,11 @@ class Vec{
             return sum;
         }
 
+        /**
+        @brief This method will normalize the vector, this will not change the original vector.
+        This will divide each element of the vector by the norm of the vector
+        @return This will return the normalized vector, as an object of this class.
+        */
         Vec<T> normalize(){
                 double n = norm();
                 std::vector<T> temp;
