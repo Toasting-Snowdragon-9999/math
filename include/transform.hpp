@@ -3,7 +3,6 @@
 #include <iostream>
 #include <vector>
 #include <complex>
-#include "vector3d.hpp"
 #include "math_exceptions.hpp"
 #include "general_math.hpp" 
 
@@ -12,6 +11,7 @@ namespace math{
     class Transform {
         private:
             std::vector<std::complex<double>> _result;
+            void perform_IFFT(std::vector<std::complex<double>>& data);
 
         public: 
             /**
@@ -30,7 +30,7 @@ namespace math{
              * @param data std::vector<std::complex<double>> data
              * 
              */
-            void FFT(std::vector<std::complex<double>> data);
+            void FFT(std::vector<std::complex<double>>& data);
             /**
              * @brief Fast fourier transform
              * 
@@ -41,17 +41,17 @@ namespace math{
              * @brief Discrete fourier transform
              * 
              */
-            void DFT(std::vector<std::complex<double>> data);
+            void DFT(std::vector<std::complex<double>>& data);
             /**
              * @brief inverse discrete fourier transform
              * 
              */
-            void IDFT(std::vector<std::complex<double>> data);
+            void IDFT(std::vector<std::complex<double>>& data);
             /**
              * @brief inverse fast fourier transform
              * 
              */
-            void IFFT(std::vector<std::complex<double>> data);
+            void IFFT(std::vector<std::complex<double>>& data);
             /**
              * @brief Discrete cosine transform
              * 

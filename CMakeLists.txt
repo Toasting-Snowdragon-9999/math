@@ -16,7 +16,7 @@ set(SOURCES
     src/custom_int.cpp
     src/custom_float.cpp
     src/transform.cpp
-
+    src/differentiation.cpp
 )
 
 set(HEADERS
@@ -28,7 +28,7 @@ set(HEADERS
     include/general_math.hpp
     include/math_exceptions.hpp
     include/transform.hpp
-
+    include/differentiation.hpp
 )
 # # Include directories
 # include_directories(${NLOPT_INCLUDE_DIRS})

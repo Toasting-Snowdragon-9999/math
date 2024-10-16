@@ -9,7 +9,8 @@ namespace exceptions {
     enum ExceptionType{
         RANGE_ERROR = 1,
         MATRIX_SIZE_ERROR = 2,
-        DET_ERROR = 3
+        DET_ERROR = 3,
+        SQRT_ERROR = 4
         
     }; 
 
@@ -27,6 +28,9 @@ namespace exceptions {
                         break;
                     case DET_ERROR:
                         return "Determinant is zero!";
+                        break;
+                    case SQRT_ERROR:
+                        return "Square root of a negative number!";
                         break;
                 }
             }

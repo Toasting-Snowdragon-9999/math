@@ -58,6 +58,32 @@ namespace math{
     */
     const double GAMMA = 0.5772156649015328606065120900824;
 
+    template<typename T>
+    T pow(T x, int pow){
+        T result = 1;
+        for(int i = 0; i < pow; i++){
+            result *= x;
+        }
+        return result;
+    }
+
+    template<typename T>
+    long long choose(T n, T k) {
+        if (k > n) return 0;
+        if (k == 0 || k == n) return 1;
+
+        if (k > n - k) {
+            k = n - k;
+        }
+
+        long long result = 1;
+        for (T i = 0; i < k; ++i) {
+            result *= (n - i);     
+            result /= (i + 1);     
+        }
+
+        return result;
+    }
 
     template<typename T>
     T abs(T x){
@@ -83,7 +109,7 @@ namespace math{
     template<typename T>
     T sqrt(T x, T tolerance = 1e-7, int maxIterations = 1000){
         if (x < 0){
-            throw math::exceptions::MathException(math::exceptions::MATH_ERROR, "Cannot take the square root of a negative number");
+            throw math::exceptions::MathException(math::exceptions::SQRT_ERROR, "Cannot take the square root of a negative number");
         }
         if (x == 0 || x == 1) {
             return x;
