@@ -101,6 +101,18 @@ math::c_int& math::c_int::operator--(){
     return *this;
 }
 
+math::c_int::operator float() const {
+    return static_cast<float>(_int);
+}
+
+math::c_int::operator double() const {
+    return static_cast<double>(_int);
+}
+
+math::c_int::operator int() const {
+    return _int;
+}
+
 math::c_int& math::c_int::operator~(){
     _int = std::abs(_int);
     return *this;

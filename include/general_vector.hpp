@@ -82,7 +82,7 @@ class Vec{
             for(int i = 0; i < _vec.size(); i++){
                 sum += _vec[i] * _vec[i];
             }
-            return std::sqrt(sum);
+            return math::sqrt(sum);
         }
 
         /**
@@ -92,7 +92,7 @@ class Vec{
         double manhatten_norm(){
             T sum = 0;
             for(int i = 0; i < _vec.size(); i++){
-                sum += std::sqrt(_vec[i]*_vec[i]);
+                sum += math::sqrt(_vec[i]*_vec[i]);
             }
             return sum;
         }

@@ -107,6 +107,18 @@ double math::c_float::operator^(c_float i){
     return temp;
 }
 
+math::c_float::operator float() const {
+    return _float;
+}
+
+math::c_float::operator double() const {
+    return static_cast<double>(_float);
+}
+
+math::c_float::operator int() const {
+    return static_cast<int>(_float);
+}
+
 math::c_float& math::c_float::operator~(){
     _float = std::abs(_float);
     return *this;

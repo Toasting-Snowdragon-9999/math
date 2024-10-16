@@ -57,6 +57,10 @@ class c_int{
 
         c_int& operator--();
 
+        operator float() const;
+        operator double() const;
+        operator int() const;
+
         c_int& operator~();
 
         double operator^(c_int i);

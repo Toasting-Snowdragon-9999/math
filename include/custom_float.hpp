@@ -14,14 +14,7 @@ class c_float{
         c_float();
 
         c_float(float i);
-        /**
-         * @brief Sends a message over the socket connection to the endpoint. 
-         * 
-         * @param buffer The pointer to the char buffer containing the data to send. 
-         * @param length The number of bytes to send. 
-         * @return true The send was succesfull. 
-         * @return false The send was NOT succesfull. 
-         */
+        
         void set_val(float i);
 
         float get_val() const;
@@ -65,7 +58,11 @@ class c_float{
         c_float& operator++();
 
         c_float& operator--();
-    
+
+        operator float() const;
+        operator double() const;
+        operator int() const;
+
         c_float& operator~();
 
         friend std::ostream& operator<<(std::ostream& os, const c_float& obj);

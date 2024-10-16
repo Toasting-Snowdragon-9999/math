@@ -15,6 +15,8 @@ set(SOURCES
     src/main.cpp
     src/custom_int.cpp
     src/custom_float.cpp
+    src/transform.cpp
+
 )
 
 set(HEADERS
@@ -25,6 +27,7 @@ set(HEADERS
     include/custom_float.hpp
     include/general_math.hpp
     include/math_exceptions.hpp
+    include/transform.hpp
 
 )
 # # Include directories

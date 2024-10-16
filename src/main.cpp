@@ -6,6 +6,7 @@
 #include "custom_int.hpp"
 #include "custom_float.hpp"
 #include "complex_number.hpp"
+#include "transform.hpp"
 
 
 #include <limits>
@@ -85,5 +86,17 @@ int main(){
     m4 = m3^-1;
     std::cout << m3 << std::endl;
     std::cout << m4 << std::endl;
+
+    math::Transform t;
+    std::vector<std::complex<double>> data = {std::complex<double>(1, 0), std::complex<double>(2, 0), std::complex<double>(3, 0), std::complex<double>(4, 0)};
+    t.FFT(data);
+    for(int i = 0; i < t.get_result().size(); i++){
+        std::cout << t.get_result()[i] << std::endl;
+    }
+    t.IFFT(t.get_result());
+    for(int i = 0; i < t.get_result().size(); i++){
+        std::cout << t.get_result()[i] << std::endl;
+    }
+
     return 0;
 }
